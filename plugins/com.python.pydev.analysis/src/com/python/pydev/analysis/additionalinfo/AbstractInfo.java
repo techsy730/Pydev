@@ -118,7 +118,13 @@ public abstract class AbstractInfo implements IInfo, Serializable {
 
     @Override
     public int hashCode() {
-        return 7 * this.name.hashCode() + this.moduleDeclared.hashCode() * getType();
+        final int prime = 31;
+        int result = 1;
+        result = prime*result + this.name.hashCode();
+        result = prime*result + this.moduleDeclared.hashCode();
+        result = prime*result + (this.path == null ? 0 : this.path.hashCode());
+        result = prime*result + getType();
+        return result;
     }
 
     @Override
